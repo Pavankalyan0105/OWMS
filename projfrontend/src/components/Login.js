@@ -14,11 +14,11 @@ const Login = () => {
     const [email,setEmail] = useState("")
     const [password, setPassword] = useState("");
     const [user , setUser] = useState({})
-    const [ auth , setAuth ] = useState(false) 
+    const [ auth , setAuth ] = useState(false)
     const [err , setErr] = useState("")
 
     const {dispatch} = useContext(detailsContext)
- 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         await axios.post(
@@ -28,7 +28,7 @@ const Login = () => {
             async res =>  (
                 await setUser(res.data.user),
                 console.log(res.data.user),
-                // keep user in context 
+                // keep user in context
                 dispatch(res.data.user),
                 // call function
                 localStorage.setItem("user" , JSON.stringify(res.data.user)),
@@ -61,19 +61,19 @@ const Login = () => {
     if(auth)
       return <Navigate to="/myworkshops"/>
 
-   
+
     return(
         <div className="content">
           <div className="flex-div">
         <div className="name-content">
-          <h1 className="logo">Book Your Workshop</h1>
+          <h1 className="logo">Online Workshop/Lab Management System</h1>
           <p>  </p>
         </div>
           <form onSubmit={handleSubmit} className="lform">
-          <input 
+          <input
                 type="email"
                 name="email"
-                id="email" 
+                id="email"
                 placeholder="Enter your email"
                 onChange={e => setEmail(e.target.value)}
                 required
@@ -88,9 +88,9 @@ const Login = () => {
             <button class="login"
                  type="submit"
             >Log In</button>
-            
+
             <Link to = "/components/Select">
-                <button 
+                <button
                 className="create-account"
                 type="submit"
                 id = "Register"

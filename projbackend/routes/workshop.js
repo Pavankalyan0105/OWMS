@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const { isSignedin, isAuthenticated, isAdmin } = require("../controllers/auth");
-const { createWorkshop , getAllWorkshops , getWorkshopById, bookWorkshop , getMyWorkshops , searchWorkshops} = require('../controllers/workshop')
+const { createWorkshop , getAllWorkshops , getWorkshopById, bookWorkshop , getMyWorkshops , searchWorkshops , getWorkshopDetails } = require('../controllers/workshop')
 const { getUserById } = require("../controllers/user");
 
 router.param("userId", getUserById);
@@ -30,6 +30,9 @@ router.get('/getallworkshops' , getAllWorkshops)
 router.get('/workshops/:userId' ,isSignedin, isAuthenticated,getMyWorkshops)
 
 router.get("/searchworkshops", searchWorkshops)
+
+router.get("/getworkshop", getWorkshopDetails)
+
 
 
 module.exports = router;

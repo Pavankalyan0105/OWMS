@@ -38,7 +38,7 @@ const Card = ({workshop , page}) => {
     const [ token , setToken ] = useState("")
     const [ userId , setUserId ] = useState("")
     const [ booked , setBooked] = useState(false)
-    // const [minus , setMinus]  =useState(0)
+    const [minus , setMinus]  =useState(0)
     const [seats , setSeats] = useState(workshop.seats)
 
     //popup
@@ -68,7 +68,8 @@ const Card = ({workshop , page}) => {
           then(
               (res) => {
                 console.log(res.data)
-                // setMinus(res.data.students.length)
+                setMinus(1)
+                // setSeats(seats-1)
               }
           ).catch(
               err => console.log(err)
@@ -153,7 +154,7 @@ const Card = ({workshop , page}) => {
                        {console.log( workshop.fromDate.toString().slice(0,10)) }
                        <p> FromTime : &nbsp; {workshop.fromTime}</p> 
                        <p> toTime : &nbsp; {workshop.toTime}</p> 
-                       {workshop.seats!==-1?(<p>Seats Left: {seats}</p>):""} 
+                       {(workshop.seats!==-1 && role==0)?(<p>Seats Left: {seats-minus}</p>):""} 
  
                     </div> 
                 </div> 
@@ -203,7 +204,7 @@ const Card = ({workshop , page}) => {
                         
                 }
 
-                <PopUp openPopup={openPopup} setOpenPopup={setOpenPopup}/>
+                <PopUp workshop ={workshop} openPopup={openPopup} setOpenPopup={setOpenPopup}/>
  
                 
 

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter as Router,Routes,Route,Switch,Link,Navigate} from "react-router-dom";
+import {BrowserRouter as Router,Routes,Route,Link,Navigate} from "react-router-dom";
 import Select from './components/Select';
 import StudentRegister from './components/StudentRegister';
 import FacultyRegistration from './components/FacultyRegistration'

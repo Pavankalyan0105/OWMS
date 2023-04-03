@@ -13,8 +13,6 @@ function App() {
   return (
       <div className="SearchBar">
         <h1>App component</h1>
-        {/* <Login/> */}
-        {/* <WorkshopCard/> */}
       </div>
    
   );

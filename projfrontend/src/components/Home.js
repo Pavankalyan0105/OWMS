@@ -69,7 +69,7 @@ const Home = () => {
                  ).map( (ws,key) => {
                      return (
                         <Card key={Math.floor((Math.random() * 24) + 1) } className="user" workshop={ws} page="Home"/>
-                     )
+                     )  
                  } )
             }    
 

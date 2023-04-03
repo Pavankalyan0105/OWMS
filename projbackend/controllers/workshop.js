@@ -130,3 +130,16 @@ exports.getMyWorkshops =    (req , res) => {
     return res.json(req.profile.workshops)
 
 }
+
+
+exports.getWorkshopDetails = (req , res)=>{
+
+    Workshop.findById(req.query._id).exec( (err , workshop) =>{
+        if(err || !workshop){
+            return res.json(err)
+        }
+        return res.json(workshop)
+
+    })
+   
+}

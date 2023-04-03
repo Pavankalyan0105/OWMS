@@ -40,6 +40,15 @@ app.use(cookieParser())
 app.use(cors())
 
 
+// Deployement purpose
+// Making Build Folder as Public
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+
 // //My Routes
 app.use("/api" , authRoutes)
 app.use("/api" , userRoutes)
@@ -55,5 +64,3 @@ const port = process.env.PORT || 8000;
 app.listen(port , () => {
     console.log(`App is running at ${port}`);
 })
-
-
